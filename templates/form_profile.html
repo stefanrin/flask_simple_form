@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Izmena podataka</title>
+    <style>
+        label {display:inline-block; width:130px}
+        table, th, td {border: 1px solid black;}
+        #content{padding:2em}
+
+    </style>
+</head>
+<body>
+<h1>Pozdrav, {{ arg_username}}</h1>
+<div id="content">
+
+    <table>
+        <tr>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Kontakt</th>
+            <th>Adresa</th>
+        </tr>
+        <tr>
+            <td>{{arg_ime}}</td>
+            <td>{{arg_prezime}}</td>
+            <td>{{arg_kontakt}}</td>
+            <td>{{arg_adresa}}</td>
+        </tr>
+    </table>
+    <h2>Unos novih podataka:</h2>
+    <form action="{{url_for('save')}}" method="POST">
+        <div>
+            <label for="name">Ime</label>
+            <input type="text", id="name" name="name" value="{{arg_ime}}"><br><br>
+        </div>
+        <div>
+            <label for="surname">Prezime</label>
+            <input type="text", id="surname" name="surname" value="{{arg_prezime}}"><br><br>
+        </div>
+        <div>
+            <label for="contact">Kontakt</label>
+            <input type="text", id="contact" name="contact" value="{{arg_kontakt}}"><br><br>
+        </div>
+        <div>
+            <label for="address">Adresa</label>
+            <input type="text", id="address" name="address" value="{{arg_adresa}}"><br><br>
+        </div>
+        <input type="submit" name="btn" value="odjava">
+        <input type="submit" name="btn" value="sacuvaj">
+    </form>
+</div>
+</body>
+</html>

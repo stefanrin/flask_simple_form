@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prijava</title>
+    <style>
+        label {display:inline-block; width:130px}
+        #content{ margin-left:auto; margin-right:auto; width:8em; padding:4em 8em; border-style:solid; border-color:gray}
+        #error_message{ color:red}
+    </style>
+</head>
+<body>
+
+<div id="content">
+    <h1>Prijava</h1>
+    <form action="{{url_for('login')}}" method="POST">
+        <div>
+            <label for="fuser">Korisnicko ime:</label>
+            <input type="text" id="fuser", name="fuser"><br><br>
+        </div>
+        <div>
+            <label for="fpass">Lozinka:</label>
+            <input type="password" id="fpass", name="fpass"><br><br>
+        </div>
+
+        <input type="submit" name="btn" value="prijava">
+        <input type="submit" name="btn" value="registracija">
+
+    </form>
+    {% for message in get_flashed_messages()%}
+            <p id="error_message">{{message}}</p>
+    {% endfor %}
+</div>
+</body>
+</html>
