@@ -96,6 +96,9 @@ def save():
     student_dict["prezime"] = prezime
     student_dict["adresa"] = adresa
     student_dict["kontakt"] = str(kontakt)
+    if not (os.path.exists("studenti")):
+        #Add exception
+        os.mkdir("studenti")
     with open("studenti/"+user+".json", 'w') as f:
         json.dump(student_dict, f)
     return redirect("/student")
